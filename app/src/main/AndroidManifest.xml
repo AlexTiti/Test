@@ -3,6 +3,7 @@
           package="com.example.administrator.test">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+
     <application
             android:name=".App"
             android:allowBackup="true"
@@ -14,16 +15,25 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".RecycleViewActivity">
-
         </activity>
         <activity android:name=".IntentActivity">
+        </activity>
+        <activity android:name=".PhoneNumberActivity">
+        </activity>
+        <activity android:name=".CustomMatcherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PhoneNumberActivity">
+        <activity android:name=".IdingActivity">
+        </activity>
+        <activity android:name=".WindowActivity">
+
+        </activity>
+        <activity android:name=".WebActivity">
+
         </activity>
     </application>
 
