@@ -23,6 +23,10 @@ class App : Application() {
     }
 
     fun dev(){
+        "这时修复分支"
+    }
+
+    fun fix(){
 
     }
 }
