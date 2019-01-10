@@ -29,7 +29,13 @@ class App : Application() {
         //|||||||||||||||
 
         "这时添加add 的版本"
+
+        "这时修复分支"
     }
+
+
+
+
 
     fun fix(){
 
