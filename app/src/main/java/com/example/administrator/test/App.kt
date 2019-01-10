@@ -35,8 +35,6 @@ class App : Application() {
 
 
 
-
-
     fun fix(){
 
     }
