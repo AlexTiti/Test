@@ -18,6 +18,11 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        context = applicationContext;
+        context = applicationContext
+
+    }
+
+    fun dev(){
+
     }
 }
