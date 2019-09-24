@@ -29,6 +29,8 @@ class RecycleViewActivityTest {
 
     @Test
     fun test() {
+
+
 //        onView(withId(R.id.recycler)).perform(RecyclerViewActions.actionOnItemAtPosition<>(
 //            0, click()
 //        ))
