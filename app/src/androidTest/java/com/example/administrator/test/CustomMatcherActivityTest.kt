@@ -24,7 +24,6 @@ class CustomMatcherActivityTest{
     @JvmField
     val activity  =  ActivityTestRule<CustomMatcherActivity>(CustomMatcherActivity::class.java)
 
-
     @Test
     fun testHint(){
         onView(withId(R.id.et_phone_hint))

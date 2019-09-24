@@ -35,7 +35,6 @@ class IntentActivity : AppCompatActivity() {
 
         }
 
-
         button3.setOnClickListener {
             startActivityForResult(Intent(this,PhoneNumberActivity::class.java),200)
         }
@@ -60,6 +59,16 @@ class IntentActivity : AppCompatActivity() {
                 val bitmap : Bitmap = it?.getParcelable("data") as Bitmap
                 imageView.setImageBitmap(bitmap)
             }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 100 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            val string = editText.text.trim()
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.setData(Uri.parse("tel: $string"))
+            startActivity(intent)
         }
     }
 

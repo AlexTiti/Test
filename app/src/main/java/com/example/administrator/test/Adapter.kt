@@ -2,6 +2,7 @@ package com.example.administrator.test
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,6 @@ class Adapter(val list: List<String>,val context: Context) : RecyclerView.Adapte
 
     lateinit var view : View
 
-
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHodler, position: Int) {
@@ -32,6 +32,7 @@ class Adapter(val list: List<String>,val context: Context) : RecyclerView.Adapte
     }
 
  public class ViewHodler(view: View) : RecyclerView.ViewHolder(view){
+
         val textView = view.findViewById<TextView>(R.id.tvList)
     }
 

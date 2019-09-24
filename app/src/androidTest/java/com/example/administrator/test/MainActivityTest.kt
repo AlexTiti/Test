@@ -1,11 +1,8 @@
 package com.example.administrator.test
 
 
-
-
 import android.view.accessibility.AccessibilityNodeInfo
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
+import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -27,7 +24,7 @@ import org.junit.runners.JUnit4
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class MainActivityTest{
+class MainActivityTest {
 
     /**
      * Kotlin中使用   @JvmField注解免除编译问题
@@ -36,24 +33,20 @@ class MainActivityTest{
     @JvmField
     val activity = ActivityTestRule<MainActivity>(MainActivity::class.java)
 
-
-
     @Test
-    fun test(){
-        onView(
-            allOf(
+    fun test() {
+        onView(allOf(
                 withText("TextView"),
                 hasSibling(withText("Button"))
             )
-        )
-            .perform(click())
+        ).perform(click())
 
-      onView(withId(R.id.button))
+        onView(withId(R.id.button))
             .check(matches(withText("AAA")))
     }
 
     @Test
-    fun testMenu(){
+    fun testMenu() {
 
         onView(withId(R.id.button))
             .check(matches(withText("Button")))
@@ -67,25 +60,22 @@ class MainActivityTest{
     }
 
     @Test
-    fun testMenuList(){
-        openActionBarOverflowOrOptionsMenu(App.context)
-
+    fun testMenuList() {
+        openContextualActionModeOverflowMenu() // 打开Menu菜单
         onView(withText("Search"))
             .perform(click())
 
         onView(withId(R.id.button))
             .check(matches(withText("Search")))
 
-        openActionBarOverflowOrOptionsMenu(App.context)
 
+        openContextualActionModeOverflowMenu()
         onView(withText("Action"))
             .perform(click())
 
         onView(withId(R.id.button))
             .check(matches(withText("Action")))
     }
-
-
 
 
 }

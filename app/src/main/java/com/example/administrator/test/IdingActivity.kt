@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_iding.*
 
 
 const val textString = " This is a text ! "
+
 class IdingActivity : AppCompatActivity() {
 
 
@@ -20,27 +21,20 @@ class IdingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_iding)
 
         btnGetText.setOnClickListener {
-//            idingResource.increment()
             idingResource.setBoolean(false)
             Handler().postDelayed(
                 {
                     tvShowText.text = textString
-//                    idingResource.decrement()
                     idingResource.setBoolean(true)
-                },3000
+                }, 3000
             )
         }
 
     }
 
     val idingResource by lazy {
-
-//        CountingIdlingResource("Idling")  // 使用系统的CountingIdlingResource
         TestIdlingResource()
     }
-
-
-
 
 
 }

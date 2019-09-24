@@ -32,7 +32,6 @@ class TestIdlingResource : IdlingResource {
 
 
     fun setBoolean(b: Boolean) {
-
         atmoicBoolean.set(b)
         if (b) {
             callback?.onTransitionToIdle()  // 在线程处于空闲状态（即加载完成后）调用onTransitionToIdle()

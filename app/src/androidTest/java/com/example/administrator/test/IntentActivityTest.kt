@@ -51,18 +51,28 @@ class IntentActivityTest{
     val call_data = Uri.parse("tel: $string")
 
 
+    @Before
+    fun prepare(){
+        //设置获取Image后的返回Intent
+        val bundle = Bundle()
+        bundle.putParcelable("data",BitmapFactory.decodeResource(intentsTestRule.activity.resources,R.drawable.ic_launcher))
+        val intent = Intent()
+        intent.putExtras(bundle)
+        val result = Instrumentation.ActivityResult(RESULT_OK,intent)
+        //预设置发送Intent的返回值
+        intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE))
+            .respondWith(result)
+    }
+
     @Test
     fun testIntent(){
-
         onView(withId(R.id.editText))
             .perform(
                 typeText(string),
                 closeSoftKeyboard()
             )
-
         onView(withId(R.id.button2))
             .perform(click())
-
         //断言Intent中的元素和数据
         intended(allOf(
             hasAction(Intent.ACTION_CALL),
@@ -70,8 +80,6 @@ class IntentActivityTest{
             toPackage("com.android.server.telecom")
         ))
     }
-
-
 
     @Test
     fun testAssertIntent(){
@@ -105,25 +113,9 @@ class IntentActivityTest{
 
         onView(withId(R.id.button3))
             .perform(click())
-
         onView(withId(R.id.editText))
             .check(matches(withText(string)))
     }
-
-
-    @Before
-    fun prepare(){
-        val bundle = Bundle()
-        bundle.putParcelable("data",BitmapFactory.decodeResource(intentsTestRule.activity.resources,R.drawable.ic_launcher))
-        val intent = Intent()
-        intent.putExtras(bundle)
-
-        val result = Instrumentation.ActivityResult(RESULT_OK,intent)
-        //预设置发送Intent的返回值
-        intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE))
-            .respondWith(result)
-    }
-
 
     @Test
     fun testImageView(){

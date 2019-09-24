@@ -26,7 +26,6 @@ class WindowActivityTest{
     @JvmField
     val activity = ActivityTestRule(WindowActivity::class.java)
 
-
     @Test
     fun testWindow(){
 
